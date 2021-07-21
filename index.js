@@ -90,8 +90,15 @@ console.log(Adam.toString());
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = tank = 0;
+  this.odometer= odometer = 0;
   
+}
+Car.prototype.fill = function(gallons){
+
 }
 
 
@@ -102,18 +109,27 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
+function Baby(name, age, favoriteToy) {
+  Person.call (this, name, age);
+  this.favoriteToy = favoriteToy
+}
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
 }
 
+const BabyOne = new Baby('Rowen', 2, 'Binky');
+
+console.log(BabyOne)
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Is the function called by new?
+  2. Is the function called by call(), apply(), or bind()?
+  3. is the function called as a method?
+  4. Is the function called in the glboal scope?
 */
 
 
